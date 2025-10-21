@@ -1,0 +1,77 @@
+[gd_scene load_steps=3 format=3 uid="uid://bx6486umfw04b"]
+
+[ext_resource type="Script" uid="uid://bjkfw7pj6v425" path="res://Scripts/PauseMenu.gd" id="1_xwsa7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_cbrvg"]
+font_size = 40
+outline_size = 3
+shadow_size = 18
+shadow_color = Color(0, 0, 0, 0.40392157)
+
+[node name="Control" type="Control" groups=["pause_menu"]]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+script = ExtResource("1_xwsa7")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.3882353)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.44200003
+anchor_top = 0.264
+anchor_right = 0.554
+anchor_bottom = 0.349
+offset_left = -0.184021
+offset_top = -0.072006226
+offset_right = -0.20800781
+offset_bottom = -0.15200806
+grow_horizontal = 2
+grow_vertical = 2
+text = "PAUSA"
+label_settings = SubResource("LabelSettings_cbrvg")
+
+[node name="ContinueButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.46300003
+anchor_top = 0.476
+anchor_right = 0.537
+anchor_bottom = 0.52400005
+offset_left = 38.623962
+offset_top = 11.552002
+offset_right = -38.624023
+offset_bottom = -11.552032
+grow_horizontal = 2
+grow_vertical = 2
+text = "Continuar
+"
+
+[node name="ExitButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.483
+anchor_top = 0.563
+anchor_right = 0.51900005
+anchor_bottom = 0.611
+offset_left = -0.41601563
+offset_top = 0.17599487
+offset_right = 0.11193848
+offset_bottom = 0.07199097
+grow_horizontal = 2
+grow_vertical = 0
+text = "Salir
+"

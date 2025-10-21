@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmrakdp3bne13"]
+
+[ext_resource type="Script" uid="uid://cewalr0ty4icu" path="res://Scripts/Object.gd" id="1_aspwm"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_xlbju"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aspwm"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="CPU" type="RigidBody3D" groups=["pickable"]]
+script = ExtResource("1_aspwm")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_xlbju")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_aspwm")

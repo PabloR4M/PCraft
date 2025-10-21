@@ -1,0 +1,155 @@
+[gd_scene load_steps=25 format=3 uid="uid://14yxijxuv4bp"]
+
+[ext_resource type="Texture2D" uid="uid://ux72q61clxxy" path="res://Image/crosshair193.png" id="1_eu7l1"]
+[ext_resource type="Script" uid="uid://bwohc8xnrf0xt" path="res://Scripts/ui.gd" id="1_kwl8l"]
+[ext_resource type="Script" uid="uid://qx3cf5k8vguj" path="res://Scripts/Crosshair.gd" id="1_p1v5b"]
+[ext_resource type="Script" uid="uid://b1sv40idodwdj" path="res://Scenes/MainLevel.gd" id="1_rwt1y"]
+[ext_resource type="PackedScene" uid="uid://bx6486umfw04b" path="res://Scripts/PauseMenu.tscn" id="1_waglr"]
+[ext_resource type="PackedScene" uid="uid://cmrakdp3bne13" path="res://Scenes/Object3D.tscn" id="2_2dftf"]
+[ext_resource type="PackedScene" uid="uid://dv7c5yh4nuan4" path="res://Scenes/PlayerCharacter.tscn" id="2_bcbcq"]
+[ext_resource type="PackedScene" uid="uid://83d4nuy5dtrk" path="res://Scenes/PcCase.tscn" id="2_js7pq"]
+[ext_resource type="PackedScene" uid="uid://ccud6lvfdh6u8" path="res://Scenes/Slot.tscn" id="3_js7pq"]
+[ext_resource type="PackedScene" uid="uid://d4g5bkirba0kk" path="res://Scenes/Gabinete.tscn" id="7_q2d71"]
+[ext_resource type="PackedScene" uid="uid://ko8i434hq2hr" path="res://Scenes/office_supplies.tscn" id="7_y7y61"]
+[ext_resource type="PackedScene" uid="uid://b25xcgpc27gvk" path="res://Scenes/Motherboard.tscn" id="8_uo7di"]
+[ext_resource type="PackedScene" uid="uid://bkrtrj3eqbd0k" path="res://Scenes/CPU.tscn" id="9_kn06e"]
+[ext_resource type="PackedScene" uid="uid://d3flv11i5wt2u" path="res://Scenes/PSU.tscn" id="10_7yo87"]
+[ext_resource type="PackedScene" uid="uid://dsyci7bv4jy7p" path="res://Scenes/Cooler.tscn" id="11_ti1bm"]
+[ext_resource type="PackedScene" uid="uid://cm1ttu5rdaag1" path="res://Scenes/GPU.tscn" id="12_op4cu"]
+[ext_resource type="PackedScene" uid="uid://d21b06iatstem" path="res://Scenes/RAM.tscn" id="13_8l3nt"]
+[ext_resource type="PackedScene" uid="uid://dt7tlfwht7k7m" path="res://Scenes/Slides.tscn" id="15_xiqgv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2dftf"]
+size = Vector3(50, 0.5, 50)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bcbcq"]
+albedo_color = Color(0.337255, 0.309804, 0.415686, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_js7pq"]
+material = SubResource("StandardMaterial3D_bcbcq")
+size = Vector3(50, 0.5, 50)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_op4cu"]
+
+[sub_resource type="Sky" id="Sky_8l3nt"]
+sky_material = SubResource("ProceduralSkyMaterial_op4cu")
+
+[sub_resource type="Environment" id="Environment_bcbcq"]
+background_mode = 2
+sky = SubResource("Sky_8l3nt")
+ambient_light_source = 3
+ambient_light_color = Color(0.458405, 0.458405, 0.458405, 1)
+tonemap_mode = 2
+sdfgi_enabled = true
+glow_enabled = true
+glow_intensity = 1.0
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_rwt1y")
+
+[node name="PauseMenu" parent="." instance=ExtResource("1_waglr")]
+
+[node name="UI" type="CanvasLayer" parent="." groups=["ui"]]
+script = ExtResource("1_kwl8l")
+
+[node name="ScoreLabel" type="Label" parent="UI"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="NextLevelButton" type="Button" parent="UI"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+text = "Siguiente Nivel"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("1_p1v5b")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(64, 64)
+size_flags_vertical = 4
+texture = ExtResource("1_eu7l1")
+
+[node name="PlayerCharacter" parent="." instance=ExtResource("2_bcbcq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.83602, 1.35671, 12.7259)
+
+[node name="Objects" type="Node3D" parent="."]
+
+[node name="Office Supplies" parent="Objects" instance=ExtResource("7_y7y61")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.33988, 0.236169, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Objects"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Objects/StaticBody3D"]
+shape = SubResource("BoxShape3D_2dftf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Objects/StaticBody3D"]
+mesh = SubResource("BoxMesh_js7pq")
+
+[node name="StaticBody3D2" parent="Objects" instance=ExtResource("2_js7pq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65165, 0.891093, -7.34433)
+
+[node name="Slot2" parent="Objects/StaticBody3D2" instance=ExtResource("3_js7pq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00319922, 0.730779, -0.254074)
+priority = 1
+
+[node name="uploads_files_3523588_poc" parent="Objects" instance=ExtResource("7_q2d71")]
+transform = Transform3D(0.00152888, 0, 0.199994, 0, 0.2, 0, -0.199994, 0, 0.00152888, -11.2613, 1.51961, 8.64061)
+
+[node name="Sketchfab_Scene" parent="Objects" instance=ExtResource("8_uo7di")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.72596, 1.65173, 14.148)
+
+[node name="Sketchfab_Scene2" parent="Objects" instance=ExtResource("9_kn06e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.16381, 1.70337, 14.2989)
+
+[node name="Sketchfab_Scene3" parent="Objects" instance=ExtResource("10_7yo87")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.96473, 1.49737, 14.4286)
+
+[node name="Cooler" parent="Objects" instance=ExtResource("11_ti1bm")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -9.21443, 1.36139, 14.0836)
+
+[node name="Gpu" parent="Objects" instance=ExtResource("12_op4cu")]
+transform = Transform3D(-1, 7.64274e-15, -8.74228e-08, 8.74228e-08, 0.000244391, -1, 2.13577e-11, -1, -0.000244391, -8.52146, 1.41891, 14.2149)
+
+[node name="RAM" parent="Objects" instance=ExtResource("13_8l3nt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1973, 1.75882, 14.1119)
+
+[node name="RAM2" parent="Objects" instance=ExtResource("13_8l3nt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5114, 1.75882, 14.1119)
+
+[node name="Slides" parent="Objects" instance=ExtResource("15_xiqgv")]
+transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 1.9106855e-15, -16.142845, 1.9251058, 10.865196)
+
+[node name="CPU" parent="." instance=ExtResource("2_2dftf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.0674, 2.44795, 9.90535)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_bcbcq")

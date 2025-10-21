@@ -1,0 +1,122 @@
+[gd_scene load_steps=7 format=3 uid="uid://d4k0h62il3xv3"]
+
+[ext_resource type="Script" uid="uid://8f5r5symf2np" path="res://Scripts/MainMenu.gd" id="1_hpc76"]
+[ext_resource type="PackedScene" uid="uid://ko8i434hq2hr" path="res://Scenes/office_supplies.tscn" id="2_tr2i4"]
+[ext_resource type="PackedScene" uid="uid://co30jwrosxbep" path="res://Models/uploads_files_3523588_poc.fbx" id="3_nhkr4"]
+[ext_resource type="Script" uid="uid://dl03gu07wypoi" path="res://scripts/camera_3d_menu.gd" id="4_7rqgy"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1305s"]
+font_size = 33
+outline_size = 3
+shadow_size = 9
+
+[sub_resource type="LabelSettings" id="LabelSettings_hpc76"]
+font_size = 20
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+script = ExtResource("1_hpc76")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.34901962, 0.3529412, 0.20392157)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 290.0
+offset_top = 135.0
+offset_right = -293.0
+offset_bottom = -435.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.35041714, 0.3520139, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.38900003
+anchor_top = 0.26500002
+anchor_right = 0.611
+anchor_bottom = 0.30100003
+offset_left = -0.12802124
+offset_top = 0.27998352
+offset_right = 0.12799072
+offset_bottom = -0.04801941
+grow_horizontal = 2
+grow_vertical = 2
+text = "PRACTICA SISTEMAS OPERATIVOS"
+label_settings = SubResource("LabelSettings_1305s")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.27100003
+anchor_top = 0.476
+anchor_right = 0.72900003
+anchor_bottom = 0.52400005
+offset_left = -0.1920166
+offset_top = 0.052001953
+offset_right = 0.19195557
+offset_bottom = -0.05203247
+grow_horizontal = 2
+grow_vertical = 2
+text = "EMPEZAR"
+
+[node name="ExitButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.27100003
+anchor_top = 0.591
+anchor_right = 0.72900003
+anchor_bottom = 0.63900006
+offset_left = -0.1920166
+offset_top = 0.031982422
+offset_right = 0.19195557
+offset_bottom = -0.072052
+grow_horizontal = 2
+grow_vertical = 0
+text = "SALIR
+"
+
+[node name="StatusLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.063
+anchor_top = 0.809
+anchor_right = 0.272
+anchor_bottom = 0.873
+offset_left = 0.42399597
+offset_top = -0.23199463
+offset_right = -0.34402466
+offset_bottom = 0.29595947
+grow_vertical = 0
+label_settings = SubResource("LabelSettings_hpc76")
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="Office Supplies" parent="Node3D" instance=ExtResource("2_tr2i4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.008673668, 0, 0.0071759224)
+
+[node name="uploads_files_3523588_poc" parent="Node3D" instance=ExtResource("3_nhkr4")]
+transform = Transform3D(0.19577348, 0, 0.04089921, 0, 0.2, 0, -0.04089921, 0, 0.19577348, -1.2987301, 1.2869085, 8.766465)
+
+[node name="Camera3D" type="Camera3D" parent="Node3D"]
+transform = Transform3D(0.9702957, 0.08274216, 0.22733222, 0, 0.9396926, -0.34202012, -0.2419219, 0.33186066, 0.9117797, -2, 1.2, 9.2)
+fov = 120.0
+script = ExtResource("4_7rqgy")

@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://dv7c5yh4nuan4"]
+
+[ext_resource type="Script" uid="uid://02s61rx788a1" path="res://Scripts/PlayerCharacter.gd" id="1_uf0uw"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_n04vi"]
+
+[node name="PlayerCharacter" type="CharacterBody3D" groups=["player"]]
+script = ExtResource("1_uf0uw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_n04vi")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00399601, 0.5, -0.00346112)
+current = true
+
+[node name="RayCast3D" type="RayCast3D" parent="Camera3D"]
+target_position = Vector3(0, 0, -2)
+collide_with_areas = true
+
+[node name="HandPosition" type="Node3D" parent="Camera3D"]
+transform = Transform3D(0.998289, 0, 0.0584701, 0, 1, 0, -0.0584701, 0, 0.998289, 0.387885, -0.201135, -1.07233)
