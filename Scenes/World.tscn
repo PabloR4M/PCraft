@@ -1,0 +1,271 @@
+[gd_scene load_steps=29 format=3 uid="uid://14yxijxuv4bp"]
+
+[ext_resource type="Texture2D" uid="uid://ux72q61clxxy" path="res://Image/crosshair193.png" id="1_eu7l1"]
+[ext_resource type="Script" uid="uid://bwohc8xnrf0xt" path="res://Scripts/ui.gd" id="1_kwl8l"]
+[ext_resource type="Script" uid="uid://qx3cf5k8vguj" path="res://Scripts/Crosshair.gd" id="1_p1v5b"]
+[ext_resource type="Script" uid="uid://b1sv40idodwdj" path="res://Scenes/MainLevel.gd" id="1_rwt1y"]
+[ext_resource type="PackedScene" uid="uid://bx6486umfw04b" path="res://Scripts/PauseMenu.tscn" id="1_waglr"]
+[ext_resource type="PackedScene" uid="uid://cmrakdp3bne13" path="res://Scenes/Object3D.tscn" id="2_2dftf"]
+[ext_resource type="PackedScene" uid="uid://dv7c5yh4nuan4" path="res://Scenes/PlayerCharacter.tscn" id="2_bcbcq"]
+[ext_resource type="PackedScene" uid="uid://83d4nuy5dtrk" path="res://Scenes/PcCase.tscn" id="2_js7pq"]
+[ext_resource type="PackedScene" uid="uid://ccud6lvfdh6u8" path="res://Scenes/Slot.tscn" id="3_js7pq"]
+[ext_resource type="Script" uid="uid://x4qrcyl228mh" path="res://Scripts/tutorial.gd" id="3_mvfa8"]
+[ext_resource type="PackedScene" uid="uid://d4g5bkirba0kk" path="res://Scenes/Gabinete.tscn" id="7_q2d71"]
+[ext_resource type="PackedScene" uid="uid://ko8i434hq2hr" path="res://Scenes/office_supplies.tscn" id="7_y7y61"]
+[ext_resource type="PackedScene" uid="uid://b25xcgpc27gvk" path="res://Scenes/Motherboard.tscn" id="8_uo7di"]
+[ext_resource type="PackedScene" uid="uid://bkrtrj3eqbd0k" path="res://Scenes/CPU.tscn" id="9_kn06e"]
+[ext_resource type="PackedScene" uid="uid://d3flv11i5wt2u" path="res://Scenes/PSU.tscn" id="10_7yo87"]
+[ext_resource type="PackedScene" uid="uid://dsyci7bv4jy7p" path="res://Scenes/Cooler.tscn" id="11_ti1bm"]
+[ext_resource type="PackedScene" uid="uid://cm1ttu5rdaag1" path="res://Scenes/GPU.tscn" id="12_op4cu"]
+[ext_resource type="PackedScene" uid="uid://d21b06iatstem" path="res://Scenes/RAM.tscn" id="13_8l3nt"]
+[ext_resource type="PackedScene" uid="uid://dt7tlfwht7k7m" path="res://Scenes/Slides.tscn" id="15_xiqgv"]
+[ext_resource type="Script" uid="uid://ylp5bj3gv35" path="res://scripts/marker_components.gd" id="20_r0dna"]
+[ext_resource type="Script" uid="uid://be8bsyc8w8mbe" path="res://scripts/marker_pc.gd" id="21_b5aes"]
+[ext_resource type="Script" uid="uid://cw048iydx0yil" path="res://SCRIPTS/marker_info.gd" id="22_w0bku"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2dftf"]
+size = Vector3(50, 0.5, 50)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bcbcq"]
+albedo_color = Color(0.337255, 0.309804, 0.415686, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_js7pq"]
+material = SubResource("StandardMaterial3D_bcbcq")
+size = Vector3(50, 0.5, 50)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_op4cu"]
+
+[sub_resource type="Sky" id="Sky_8l3nt"]
+sky_material = SubResource("ProceduralSkyMaterial_op4cu")
+
+[sub_resource type="Environment" id="Environment_bcbcq"]
+background_mode = 2
+sky = SubResource("Sky_8l3nt")
+ambient_light_source = 3
+ambient_light_color = Color(0.458405, 0.458405, 0.458405, 1)
+tonemap_mode = 2
+sdfgi_enabled = true
+glow_enabled = true
+glow_intensity = 1.0
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_rwt1y")
+
+[node name="PauseMenu" parent="." instance=ExtResource("1_waglr")]
+visible = false
+
+[node name="Tutorial" type="CanvasLayer" parent="."]
+visible = false
+script = ExtResource("3_mvfa8")
+
+[node name="ScientistSprite" type="TextureRect" parent="Tutorial"]
+offset_left = 8.0
+offset_top = 235.0
+offset_right = 244.0
+offset_bottom = 647.0
+
+[node name="ColorRect2" type="ColorRect" parent="Tutorial"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 224.0
+offset_top = 528.0
+offset_right = 11.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.3019608, 0.49019608, 0.6117647, 0.5372549)
+
+[node name="DialogLabel" type="Label" parent="Tutorial"]
+offset_left = 256.0
+offset_top = 533.0
+offset_right = 1115.0
+offset_bottom = 626.0
+theme_override_font_sizes/font_size = 30
+text = "Text
+"
+autowrap_mode = 3
+justification_flags = 235
+
+[node name="ColorRect" type="ColorRect" parent="Tutorial"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -627.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.68075365, 0.81362844, 0.9047203, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="Tutorial"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 637.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.68075365, 0.81362844, 0.9047203, 1)
+
+[node name="ColorRect6" type="ColorRect" parent="Tutorial"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 224.0
+offset_top = 528.0
+offset_right = 7.0
+offset_bottom = -117.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.68075365, 0.81362844, 0.9047203, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="Tutorial"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.160004
+offset_right = -487.8899
+offset_bottom = -631.83997
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5707964
+color = Color(0.68075365, 0.81362844, 0.9047203, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="Tutorial"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1152.0
+offset_right = 647.9502
+offset_bottom = -642.9546
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5707964
+color = Color(0.68075365, 0.81362844, 0.9047203, 1)
+
+[node name="UI" type="CanvasLayer" parent="." groups=["ui"]]
+script = ExtResource("1_kwl8l")
+
+[node name="ScoreLabel" type="Label" parent="UI"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -214.0
+offset_right = 215.0
+offset_bottom = 23.0
+grow_horizontal = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 25
+text = "asd"
+horizontal_alignment = 1
+
+[node name="NextLevelButton" type="Button" parent="UI"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -73.0
+offset_top = -100.0
+offset_right = 70.0
+offset_bottom = -69.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 30
+text = "Regresar al Menu"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+script = ExtResource("1_p1v5b")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(64, 64)
+size_flags_vertical = 4
+texture = ExtResource("1_eu7l1")
+
+[node name="PlayerCharacter" parent="." instance=ExtResource("2_bcbcq")]
+transform = Transform3D(-0.39394182, 0, -0.9191353, 0, 1, 0, 0.9191353, 0, -0.39394182, -15.096863, 1.3646421, 8.070786)
+
+[node name="Objects" type="Node3D" parent="."]
+
+[node name="Office Supplies" parent="Objects" instance=ExtResource("7_y7y61")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.334311, 0.23616876, -0.0064411163)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Objects"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Objects/StaticBody3D"]
+shape = SubResource("BoxShape3D_2dftf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Objects/StaticBody3D"]
+mesh = SubResource("BoxMesh_js7pq")
+
+[node name="StaticBody3D2" parent="Objects" instance=ExtResource("2_js7pq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65165, 0.891093, -7.34433)
+
+[node name="Slot2" parent="Objects/StaticBody3D2" instance=ExtResource("3_js7pq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00319922, 0.730779, -0.254074)
+priority = 1
+
+[node name="uploads_files_3523588_poc" parent="Objects" instance=ExtResource("7_q2d71")]
+transform = Transform3D(2.3849742e-09, 0, -0.19999984, 0, 0.2, 0, 0.19999984, 0, 2.3849742e-09, -9.732384, 1.51961, 14.247972)
+
+[node name="Sketchfab_Scene" parent="Objects" instance=ExtResource("8_uo7di")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.2916093, 1.3039985, 6.7669973)
+
+[node name="Sketchfab_Scene2" parent="Objects" instance=ExtResource("9_kn06e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.301765, 1.2887561, 7.354164)
+
+[node name="Sketchfab_Scene3" parent="Objects" instance=ExtResource("10_7yo87")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.369194, 1.3776323, 8.875576)
+
+[node name="Cooler" parent="Objects" instance=ExtResource("11_ti1bm")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -7.321866, 1.2852033, 7.6069684)
+
+[node name="Gpu" parent="Objects" instance=ExtResource("12_op4cu")]
+transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 1.9106855e-15, -7.3272786, 1.3293114, 8.160985)
+
+[node name="RAM" parent="Objects" instance=ExtResource("13_8l3nt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.32, 1.25, 9.447)
+
+[node name="RAM2" parent="Objects" instance=ExtResource("13_8l3nt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.32, 1.2496245, 9.653316)
+
+[node name="Slides" parent="Objects" instance=ExtResource("15_xiqgv")]
+transform = Transform3D(-6.338151e-08, -1.45, 6.338151e-08, 0, -6.338151e-08, -1.45, 1.45, -6.338151e-08, 2.770494e-15, -6.688182, 1.6997356, 12.531971)
+
+[node name="CPU" parent="." instance=ExtResource("2_2dftf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.0674, 2.44795, 9.90535)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_bcbcq")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.42735785, 0, -0.90408254, 0, 1, 0, 0.90408254, 0, -0.42735785, -15, 2, 8.5)
+fov = 80.0
+
+[node name="MarkerComponents" type="Camera3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0.42261827, -0.90630776, 0, 0.90630776, 0.42261827, 1, 1.8473232e-08, -3.961597e-08, -8.5, 2.3, 6.5)
+fov = 80.0
+script = ExtResource("20_r0dna")
+
+[node name="MarkerPC" type="Camera3D" parent="."]
+transform = Transform3D(-1, 3.694646e-08, 7.923193e-08, 0, 0.9063077, -0.42261824, -8.742278e-08, -0.42261824, -0.9063077, -9.7, 1, 13)
+fov = 80.0
+script = ExtResource("21_b5aes")
+
+[node name="MarkerInfo" type="Camera3D" parent="."]
+transform = Transform3D(-0.34202012, 0.39713123, -0.85165066, 0, 0.9063077, 0.42261824, 0.9396926, 0.14454393, -0.30997548, -8.2, 2.5, 11.75)
+fov = 80.0
+script = ExtResource("22_w0bku")

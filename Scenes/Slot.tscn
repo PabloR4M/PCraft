@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccud6lvfdh6u8"]
+
+[ext_resource type="Script" uid="uid://boeqj5duwyer" path="res://Scripts/slot.gd" id="1_otx1m"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ik2dq"]
+
+[node name="Slot" type="Area3D"]
+disable_mode = 1
+script = ExtResource("1_otx1m")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+shape = SubResource("BoxShape3D_ik2dq")
+
+[node name="PlacementPoint" type="Node3D" parent="."]

@@ -1,0 +1,109 @@
+[gd_scene load_steps=7 format=3 uid="uid://bx6486umfw04b"]
+
+[ext_resource type="Script" uid="uid://bjkfw7pj6v425" path="res://Scripts/PauseMenu.gd" id="1_xwsa7"]
+[ext_resource type="Texture2D" uid="uid://bgnel4rg78ppc" path="res://Image/menu/white-bacckground.png" id="2_cbrvg"]
+[ext_resource type="Texture2D" uid="uid://ck7sqsnyalb67" path="res://Image/pause_menu/pausa.png" id="3_f5lju"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_cbrvg"]
+font_size = 40
+outline_size = 3
+shadow_size = 18
+shadow_color = Color(0, 0, 0, 0.40392157)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f5lju"]
+bg_color = Color(0.89411765, 0.89411765, 0.89411765, 0.74509805)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1rwqd"]
+bg_color = Color(0.89411765, 0.89411765, 0.89411765, 0.74509805)
+
+[node name="Control" type="Control" groups=["pause_menu"]]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+script = ExtResource("1_xwsa7")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.3019608, 0.49019608, 0.6117647, 0.5372549)
+
+[node name="Label" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.44200003
+anchor_top = 0.264
+anchor_right = 0.554
+anchor_bottom = 0.349
+offset_left = -0.184021
+offset_top = -0.072006226
+offset_right = -0.20800781
+offset_bottom = -0.15200806
+grow_horizontal = 2
+grow_vertical = 2
+text = "PAUSA"
+label_settings = SubResource("LabelSettings_cbrvg")
+
+[node name="ContinueButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -575.0
+offset_top = -30.5
+offset_right = 576.0
+offset_bottom = 32.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.3019608, 0.49019608, 0.6117647, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_f5lju")
+text = "Continuar
+"
+
+[node name="ExitButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = 75.0
+offset_right = 577.0
+offset_bottom = 138.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.3019608, 0.49019608, 0.6117647, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_1rwqd")
+text = "Salir
+"
+
+[node name="WhiteBacckground2" type="Sprite2D" parent="."]
+position = Vector2(873.00006, 309)
+rotation = -1.8151424
+scale = Vector2(1.7144027, 1.9073862)
+texture = ExtResource("2_cbrvg")
+
+[node name="WhiteBacckground" type="Sprite2D" parent="."]
+position = Vector2(284, 277.00003)
+rotation = 1.5707964
+scale = Vector2(1.7144027, 2.165024)
+texture = ExtResource("2_cbrvg")
+
+[node name="Pausa" type="Sprite2D" parent="."]
+position = Vector2(572, 178)
+scale = Vector2(0.47428384, 0.32788086)
+texture = ExtResource("3_f5lju")
